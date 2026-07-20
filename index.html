@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Gestión y Monitoreo Ambiental</title>
+    <!-- Iconos de la interfaz -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        OPENAQ Platform
+    </div>
+    <div class="sidebar-menu">
+        <div class="menu-item active"><i class="fas fa-th"></i> Dashboard</div>
+        <div class="menu-item"><i class="fas fa-chart-line"></i> Gráficos en Tiempo Real</div>
+        <div class="menu-item"><i class="far fa-map"></i> Mapa de Dispositivos</div>
+        <div class="menu-item"><i class="fas fa-microchip"></i> Valores Actuales</div>
+        <div class="menu-item"><i class="fas fa-table"></i> Tablas de Datos</div>
+        <div class="menu-item"><i class="fas fa-bell"></i> Alertas Activas</div>
+    </div>
+</div>
+
+<div class="main-content">
+    <nav class="top-navbar">
+        <div class="navbar-title">
+            Plataforma de Gestión y Monitoreo Ambiental OpenAQ
+        </div>
+        <div class="user-actions">
+            <i class="far fa-bell"></i>
+            <i class="far fa-user-circle"></i>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="main-panel">
+            
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-header-box">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span>Temperatura</span>
+                    </div>
+                    <div class="value">22.5°C</div>
+                    <div class="badge normal">Normal</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header-box">
+                        <i class="fas fa-tint"></i>
+                        <span>Humedad</span>
+                    </div>
+                    <div class="value">45%</div>
+                    <div class="badge media">Media</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header-box">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Presión</span>
+                    </div>
+                    <div class="value">1013 hPa</div>
+                    <div class="badge estable">Estable</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header-box">
+                        <i class="fas fa-plug"></i>
+                        <span>Dispositivo</span>
+                    </div>
+                    <div class="value">Online</div>
+                    <div class="badge activo">Activo</div>
+                </div>
+            </div>
+
+            <!-- PANEL DEL MAPA (Muestra solo la imagen estática) -->
+            <div class="panel">
+                <div class="panel-header">MAPA DE DISPOSITIVOS IoT</div>
+                <div id="map-container">
+                    <!-- Recuerda guardar tu imagen con este nombre o cambiar la ruta aquí -->
+                    <img src="mi-mapa-quito.png" alt="Mapa de ubicaciones en Quito" class="map-static-img">
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span>TABLA DE DISPOSITIVOS IoT</span>
+                    <input type="text" placeholder="Filtro" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px; font-size: 14px;">
+                </div>
+                <div class="device-table-container">
+                    <table class="device-table">
+                        <thead>
+                            <tr>
+                                <th>Device ID</th>
+                                <th>Ubicación</th>
+                                <th>Sensor</th>
+                                <th>Última Transmisión</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>WOKWI_ESP32_01</td>
+                                <td>Quito, Ecuador</td>
+                                <td>DHT22</td>
+                                <td>21/07/2023 10:32:11</td>
+                                <td class="status-active">Activo</td>
+                            </tr>
+                            <tr>
+                                <td>WOKWI_ESP32_02</td>
+                                <td>Quito, Ecuador</td>
+                                <td>DHT22</td>
+                                <td>21/07/2023 11:32:15</td>
+                                <td class="status-active">Activo</td>
+                            </tr>
+                            <tr>
+                                <td>WOKWI_ESP32_03</td>
+                                <td>Quito, Ecuador</td>
+                                <td>DHT22</td>
+                                <td>21/07/2023 11:32:33</td>
+                                <td class="status-active">Activo</td>
+                            </tr>
+                            <tr>
+                                <td>WOKWI_ESP32_04</td>
+                                <td>Quito, Ecuador</td>
+                                <td>DHT22</td>
+                                <td>21/07/2023 11:32:37</td>
+                                <td class="status-active">Activo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-panel">
+            <div class="panel-header">DETALLES DE LA UBICACIÓN</div>
+            <div class="location-info">
+                <strong>UBICACIÓN:</strong> Quito, Ecuador (Simulación Wokwi)
+            </div>
+            <div class="location-info">
+                <strong>PROVEEDOR:</strong> Red Nacional de Aire
+            </div>
+            <div class="location-info">
+                <strong>TIPO DE ESTACIÓN:</strong> Simulación Wokwi
+            </div>
+            <div class="sensors">
+                <strong>SENSORES DISPONIBLES:</strong>
+                <ul>
+                    <li>Temperatura (DHT22)</li>
+                    <li>Humedad (DHT22)</li>
+                    <li>Calidad del Aire (Multi)</li>
+                </ul>
+            </div>
+            
+            <div class="graphs-container">
+                <div style="font-size: 13px; font-weight: bold; color: #475569;">GRÁFICOS RESUMIDOS (Histórico 24h):</div>
+                
+                <div class="graph-item">
+                    <div class="graph-title">Temperatura (DHT22)</div>
+                    <div class="graph-body">
+                        <div class="y-axis"><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span></div>
+                        <div class="chart-area">
+                            <div class="bar" style="height: 65%;"></div><div class="bar" style="height: 62%;"></div>
+                            <div class="bar" style="height: 60%;"></div><div class="bar" style="height: 63%;"></div>
+                            <div class="bar" style="height: 68%;"></div><div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 66%;"></div><div class="bar" style="height: 64%;"></div>
+                            <div class="bar" style="height: 60%;"></div><div class="bar" style="height: 58%;"></div>
+                            <div class="bar" style="height: 62%;"></div><div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 72%;"></div><div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 70%;"></div><div class="bar" style="height: 68%;"></div>
+                            <div class="bar green" style="height: 63%;"></div><div class="bar green" style="height: 60%;"></div>
+                            <div class="bar orange" style="height: 55%;"></div><div class="bar orange" style="height: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="x-axis"><span>00:00</span><span>04:00</span><span>19:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+                </div>
+
+                <div class="graph-item">
+                    <div class="graph-title">Humedad (DHT22)</div>
+                    <div class="graph-body">
+                        <div class="y-axis"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span><span>0</span></div>
+                        <div class="chart-area" style="align-items: stretch; padding-left: 0;">
+                            <svg class="svg-line-container" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M 0,35 Q 15,20 25,45 T 50,25 T 75,50 T 100,30" fill="none" stroke="#2b78bc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="x-axis"><span>00:00</span><span>04:00</span><span>10:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+                </div>
+
+                <div class="graph-item">
+                    <div class="graph-title">Calidad del Aire (Multi)</div>
+                    <div class="graph-body">
+                        <div class="y-axis"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+                        <div class="chart-area">
+                            <div class="bar light-blue" style="height: 15%;"></div><div class="bar light-blue" style="height: 22%;"></div>
+                            <div class="bar light-blue" style="height: 18%;"></div><div class="bar green" style="height: 35%;"></div>
+                            <div class="bar green" style="height: 40%;"></div><div class="bar green" style="height: 32%;"></div>
+                            <div class="bar yellow" style="height: 48%;"></div><div class="bar yellow" style="height: 55%;"></div>
+                            <div class="bar yellow" style="height: 50%;"></div><div class="bar orange" style="height: 65%;"></div>
+                            <div class="bar orange" style="height: 72%;"></div><div class="bar orange" style="height: 68%;"></div>
+                            <div class="bar" style="height: 55%;"></div><div class="bar" style="height: 62%;"></div>
+                            <div class="bar orange" style="height: 75%;"></div><div class="bar orange" style="height: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="x-axis"><span>08:00</span><span>04:00</span><span>10:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Powered by OpenAQ Data and Wokwi Virtual Devices (see architecture diagram)
+    </footer>
+</div>
+
+</body>
+</html>
